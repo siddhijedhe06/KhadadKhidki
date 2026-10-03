@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu - खादाड खिडकी</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin:0; padding:0; }
+        .navbar { background:#ff5722; color:white; padding:10px 20px; display:flex; justify-content:space-between; align-items:center; }
+        .navbar .brand span { font-weight:bold; }
+        .navbar ul { list-style:none; margin:0; padding:0; display:flex; gap:20px; }
+        .navbar ul li a { color:white; text-decoration:none; font-weight:bold; }
+
+        h2 { text-align:center; padding: 15px; }
+
+        .menu-container { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:20px; }
+
+        .food-item { border:1px solid #ddd; padding:15px; width:250px; text-align:center; border-radius:8px; }
+        .food-item img { width:100%; height:150px; object-fit:cover; border-radius:5px; }
+        .food-item h3 { margin:10px 0 5px 0; }
+        .food-item p { margin:5px 0; }
+        .order-btn { padding:8px 12px; background:#ff5722; color:white; border:none; border-radius:5px; cursor:pointer; }
+
+       
+        .popup {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: #4BB543; 
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            padding: 15px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            font-size: 16px;
+            opacity: 0;
+            transition: opacity 0.5s, top 0.5s;
+        }
+        .popup.show {
+            visibility: visible;
+            opacity: 1;
+            top: 50px;
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="brand">🍽 <span>खादाड खिडकी</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Cart</a></li>
+    </ul>
+</nav>
+
+<h2>Our Special Indian Menu</h2>
+
+<div class="menu-container">
+
+   
+    <div class="food-item">
+        <img src="images/paneer.jpg" alt="Paneer Tikka">
+        <h3>Paneer Tikka</h3>
+        <p>Spicy marinated paneer grilled to perfection!</p>
+        <p><strong>Price:</strong> ₹220</p>
+        <button class="order-btn" onclick="showPopup('Paneer Tikka')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/masala-dosa.jpg" alt="Masala Dosa">
+        <h3>Masala Dosa</h3>
+        <p>Classic South Indian dosa with masala filling.</p>
+        <p><strong>Price:</strong> ₹100</p>
+        <button class="order-btn" onclick="showPopup('Masala Dosa')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/chole-bhature.jpg" alt="Chole Bhature">
+        <h3>Chole Bhature</h3>
+        <p>Punjabi style spicy chole with fried bhature.</p>
+        <p><strong>Price:</strong> ₹150</p>
+        <button class="order-btn" onclick="showPopup('Chole Bhature')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/pav-bhaji.jpg" alt="Pav Bhaji">
+        <h3>Pav Bhaji</h3>
+        <p>Mumbai street style buttery pav bhaji.</p>
+        <p><strong>Price:</strong> ₹120</p>
+        <button class="order-btn" onclick="showPopup('Pav Bhaji')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/idli-sambar.jpg" alt="Idli Sambar">
+        <h3>Idli Sambar</h3>
+        <p>Steamed idlis with hot sambar and chutney.</p>
+        <p><strong>Price:</strong> ₹60</p>
+        <button class="order-btn" onclick="showPopup('Idli Sambar')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/aloo-paratha.jpg" alt="Aloo Paratha">
+        <h3>Aloo Paratha</h3>
+        <p>Stuffed paratha served with curd & pickle.</p>
+        <p><strong>Price:</strong> ₹80</p>
+        <button class="order-btn" onclick="showPopup('Aloo Paratha')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/samosa.jpg" alt="Samosa">
+        <h3>Samosa</h3>
+        <p>Crispy fried snack with spicy potato filling.</p>
+        <p><strong>Price:</strong> ₹20</p>
+        <button class="order-btn" onclick="showPopup('Samosa')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/gulab-jamun.jpg" alt="Gulab Jamun">
+        <h3>Gulab Jamun</h3>
+        <p>Soft sweet balls soaked in sugar syrup.</p>
+        <p><strong>Price:</strong> ₹50</p>
+        <button class="order-btn" onclick="showPopup('Gulab Jamun')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/dhokla.jpg" alt="Dhokla">
+        <h3>Dhokla</h3>
+        <p>Soft steamed Gujarati snack.</p>
+        <p><strong>Price:</strong> ₹70</p>
+        <button class="order-btn" onclick="showPopup('Dhokla')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/rajma-chawal.jpg" alt="Rajma Chawal">
+        <h3>Rajma Chawal</h3>
+        <p>North Indian red kidney beans curry with rice.</p>
+        <p><strong>Price:</strong> ₹150</p>
+        <button class="order-btn" onclick="showPopup('Rajma Chawal')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/malai-kofta.jpg" alt="Malai Kofta">
+        <h3>Malai Kofta</h3>
+        <p>Creamy curry loaded with rich flavors.</p>
+        <p><strong>Price:</strong> ₹240</p>
+        <button class="order-btn" onclick="showPopup('Malai Kofta')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/lassi.jpg" alt="Lassi">
+        <h3>Lassi</h3>
+        <p>Thick sweet Punjabi style lassi.</p>
+        <p><strong>Price:</strong> ₹80</p>
+        <button class="order-btn" onclick="showPopup('Lassi')">Order</button>
+    </div>
+
+    <div class="food-item">
+        <img src="images/rasgulla.jpg" alt="Rasgulla">
+        <h3>Rasgulla</h3>
+        <p>Soft Bengali dessert soaked in syrup.</p>
+        <p><strong>Price:</strong> ₹60</p>
+        <button class="order-btn" onclick="showPopup('Rasgulla')">Order</button>
+    </div>
+
+</div>
+
+
+<div id="popup" class="popup"></div>
+
+<script>
+    function showPopup(itemName) {
+        const popup = document.getElementById('popup');
+        popup.textContent = itemName + " ordered successfully!";
+        popup.classList.add('show');
+
+        
+        setTimeout(() => {
+            popup.classList.remove('show');
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
+
